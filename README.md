@@ -28,6 +28,7 @@ Architechure insights:
 - Makefile
 
 ====
+
 How to run:
 
 - Clone repo
