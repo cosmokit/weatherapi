@@ -38,5 +38,11 @@ To get cities forecasts run in terminal:
 
 make console app:all-cities-forecast
 
+TODO:
+
+- Finish development of test environment
+- Request and Response objects realisation
+- Improve Domain and Infrastructure layers
+- Improve decoupling from framework
 
 
