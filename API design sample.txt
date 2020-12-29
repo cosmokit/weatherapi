@@ -1,0 +1,101 @@
+{
+	"/api/v3/cities/{cityId}/forecasts": {
+		"post":	{
+			"tags": [
+				"city",
+				"forecast"
+			],
+			"summary": 
+			"parameters": [
+				{
+					"$ref": "#/components/parameters/date",
+				}
+			],
+	        "requestBody": {
+	            "description": "Weather forecast data",
+	            "required": true,
+	            "content": {
+	                "application/json": {
+	                    "schema": {
+	                        "$ref": "#/components/schemas/PostForecast"
+	                    }
+	                }
+	            }
+	        },
+	        "responses": {
+	            "200": {
+	                "description": "Returned when successful",
+	                "content": {
+	                    "application/json": {
+	                        "schema": {
+	                            "$ref": "#/components/schemas/Forecast"
+	                        }
+	                    }
+	                }
+	            },
+	            "400": {
+	                "description": "Returned when there are errors in the request payload"
+	            },
+	            "423": {
+	                "description": "Returned when current Forecast's internal state doesn't allow changes"
+	            },
+	            "404": {
+	                "description": "Returned when resource is not found"
+	            },
+	            "503": {
+	                "description": "Returned when the service is unavailable"
+	            }
+	        }
+
+		}
+
+	},
+	"/cities/{cityId}/forecast": {
+            "get": {
+                "tags": [
+                    "city",
+                    "forecast"
+                ],
+                "summary": "Forecasts for the city",
+                "description": "Forecasts for the city",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/X-Musement-Version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/Accept-Language"
+                    },
+                    {
+                        "$ref": "#/components/parameters/cityId"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returned when successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Forecast"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returned when resource is not found"
+                    },
+                    "503": {
+                        "description": "Returned when the service is unavailable"
+                    }
+                }
+            }
+        },
+
+}
+
+
+
+
+
