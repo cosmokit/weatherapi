@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+
+  php-fpm:
+    container_name: php-fpm
+    build:
+      context: .
+      args:
+        - UID
+        - GID
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./:/app
+
+
+
